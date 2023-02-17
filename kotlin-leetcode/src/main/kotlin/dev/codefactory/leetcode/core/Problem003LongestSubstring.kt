@@ -2,9 +2,13 @@ package dev.codefactory.leetcode.core
 
 class Problem003LongestSubstring {
     fun lengthOfLongestSubstring(s: String): Int {
-        if (s.isEmpty()) return 0
-        if (s.length==1) return 1
-        if (isNotRepeating(s)) return s.length
+        if (s.length<=1 || isNotRepeating(s)) return s.length
+
+        if (isNotRepeating(s.drop(1))
+            || isNotRepeating(s.dropLast(1))) {
+            return s.length-1
+        }
+
         return maxOf(lengthOfLongestSubstring(s.drop(1)), lengthOfLongestSubstring(s.dropLast(1)))
     }
 
