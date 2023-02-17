@@ -6,15 +6,19 @@ class Problem003LongestSubstringSpec extends Specification {
 
     def solution = new Problem003LongestSubstring()
 
-    def 'it should return 1 when all characters are the same'() {
-
-        given:
-        def input = "bbbbbbb"
+    def 'it should return the maximum length of non-repetitive string'(String input, Integer longest) {
 
         when:
         def count = solution.lengthOfLongestSubstring(input)
 
         then:
-        count == 1
+        count == longest
+
+        where:
+        input           | longest
+        "abcabcbb"      | 3
+        "bbbbb"         | 1
+        "pwwkew"        | 3
+
     }
 }
