@@ -1,6 +1,7 @@
 package dev.codefactory.leetcode.core
 
 class Problem003LongestSubstring {
+    private val cache = mutableMapOf<String, Boolean>()
     fun lengthOfLongestSubstring(s: String): Int {
         if (s.length<=1 || isNotRepeating(s)) return s.length
 
@@ -12,10 +13,9 @@ class Problem003LongestSubstring {
         return maxOf(lengthOfLongestSubstring(s.drop(1)), lengthOfLongestSubstring(s.dropLast(1)))
     }
 
-    private val cache = mutableMapOf<String, Boolean>()
 
     private fun isNotRepeating(s: String): Boolean {
-        if (cache.containsKey(s)) return false
+        if (cache.containsKey(s)) return cache[s]!!
 
         val existence = mutableMapOf<String, Boolean>()
 
@@ -23,13 +23,14 @@ class Problem003LongestSubstring {
             val currentChar = s[i].toString()
 
             if (existence.containsKey(currentChar)) {
-                cache[s] = true
+                cache[s] = false
                 return false
             }
 
             existence[currentChar] = true
         }
 
+        cache[s] = true
         return true
     }
 
