@@ -71,7 +71,7 @@ class Problem002AddTwoNumbersSpec extends Specification {
         l1 == l2
     }
 
-    def 'it should be equals'() {
+    def 'it should not be equals'() {
 
         given:
         def l1 = createNode(1)
@@ -91,11 +91,41 @@ class Problem002AddTwoNumbersSpec extends Specification {
         l1 == l2
     }
 
+    def 'it should be equals with multiple nodes x more'() {
+
+        given:
+        def l1 = createNode(8,9,9,9,0,0,0,1)
+        def l2 = createNode(8,9,9,9,0,0,0,1)
+
+        expect:
+        l1 == l2
+    }
+
     def 'it should be not equals with multiple nodes'() {
 
         given:
         def l1 = createNode(1, 2)
         def l2 = createNode(1, 3)
+
+        expect:
+        l1 != l2
+    }
+
+    def 'it should not be equals with multiple nodes x more'() {
+
+        given:
+        def l1 = createNode(8,9,9,9,0,0,0,1)
+        def l2 = createNode(8,9,9,9,0,0,0,0)
+
+        expect:
+        l1 != l2
+    }
+
+    def 'it should not be equals when length is different'() {
+
+        given:
+        def l1 = createNode(1, 2, 3)
+        def l2 = createNode(1, 2)
 
         expect:
         l1 != l2
