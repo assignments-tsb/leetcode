@@ -36,9 +36,9 @@ class Problem002AddTwoNumbersSpec extends Specification {
     def 'it should add multiple digits with the carry over'() {
 
         given:
-        def l1 = createNode(2, 4, 3)
-        def l2 = createNode(5, 6, 4)
-        def expectedResult = createNode(7, 0, 8)
+        def l1 = createNode(5)
+        def l2 = createNode(5)
+        def expectedResult = createNode(0, 1)
 
         when:
         def result = solution.addTwoNumbers(l1, l2)

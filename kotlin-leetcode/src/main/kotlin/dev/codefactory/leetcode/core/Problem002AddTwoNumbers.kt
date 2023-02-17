@@ -12,12 +12,17 @@ package dev.codefactory.leetcode.core
 class Problem002AddTwoNumbers {
 
     fun addTwoNumbers(l1: ListNode?, l2: ListNode?): ListNode? {
-        val sum = ListNode(l1!!.`val` + l2!!.`val`)
+        if (l1==null && l2!=null) return l2
+        if (l2==null && l1!=null) return l1
 
-        if (l1.next!=null && l2.next!=null) {
-            sum.next = addTwoNumbers(l1.next, l2.next)
+        val sum = ListNode((l1?.`val`?:0) + (l2?.`val`?:0))
+        val excess = if (sum.`val` >= 10) ListNode(1) else null
+
+        if (l1?.next!=null || l2?.next!=null) {
+            sum.next = addTwoNumbers(addTwoNumbers(l1?.next, l2?.next), excess)
         }
 
+        sum.`val` = sum.`val` % 10
         return sum
     }
 }
