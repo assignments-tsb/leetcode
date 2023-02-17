@@ -20,6 +20,8 @@ class Problem002AddTwoNumbers {
 
         if (l1?.next!=null || l2?.next!=null) {
             sum.next = addTwoNumbers(addTwoNumbers(l1?.next, l2?.next), excess)
+        } else if (excess!=null) {
+            sum.next = excess
         }
 
         sum.`val` = sum.`val` % 10
