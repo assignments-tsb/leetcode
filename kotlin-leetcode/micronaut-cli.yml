@@ -1,6 +1,6 @@
 applicationType: default
 defaultPackage: dev.codefactory.leetcode
 testFramework: spock
-sourceLanguage: java
+sourceLanguage: kotlin
 buildTool: gradle
-features: [annotation-api, app-name, gradle, http-client, jackson-databind, java, java-application, logback, micronaut-build, netty-server, readme, shade, spock, yaml]
+features: [annotation-api, app-name, gradle, http-client, jackson-databind, kotlin, kotlin-application, kotlin-build, logback, micronaut-build, netty-server, readme, shade, spock, yaml]
