@@ -43,7 +43,12 @@ class ListNode(var `val`: Int) {
         if (next!=null && other.next!=null) {
             return `val` == other.`val` && next!! == other.next
         }
-        return `val` == other.`val`
+
+        if (next==null && other.next==null) {
+            return `val` == other.`val`
+        }
+
+        return false
     }
 
     override fun hashCode(): Int {
