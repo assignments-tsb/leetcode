@@ -15,10 +15,13 @@ class Problem003LongestSubstringSpec extends Specification {
         count == longest
 
         where:
-        input           | longest
-        "abcabcbb"      | 3
-        "bbbbb"         | 1
-        "pwwkew"        | 3
+        input                       | longest
+        ""                          | 0
+        "abcabcbb"                  | 3
+        "bbbbb"                     | 1
+        "pwwkew"                    | 3
+        "rpdivsinokxnkctsfukinavkn" | 10
+        "kmzmtyyfgqzzrsadztlfuhfmo" | 10
 
     }
 }
