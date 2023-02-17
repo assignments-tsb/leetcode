@@ -47,6 +47,20 @@ class Problem002AddTwoNumbersSpec extends Specification {
         result == expectedResult
     }
 
+    def 'it should add multiple digits with different length'() {
+
+        given:
+        def l1 = createNode(9,9,9,9,9,9,9)
+        def l2 = createNode(9,9,9,9)
+        def expectedResult = createNode(8,9,9,9,0,0,0,1)
+
+        when:
+        def result = solution.addTwoNumbers(l1, l2)
+
+        then:
+        result == expectedResult
+    }
+
     def 'it should be equals'() {
 
         given:
