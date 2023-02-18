@@ -1,7 +1,6 @@
 package dev.codefactory.leetcode.core
 
 class Problem003LongestSubstring {
-    private val cache = mutableMapOf<String, Boolean>()
     fun lengthOfLongestSubstring(s: String): Int {
         if (s.length<=1) return s.length
 
