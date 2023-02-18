@@ -3,35 +3,24 @@ package dev.codefactory.leetcode.core
 class Problem003LongestSubstring {
     private val cache = mutableMapOf<String, Boolean>()
     fun lengthOfLongestSubstring(s: String): Int {
-        if (s.length<=1 || isNotRepeating(s)) return s.length
+        if (s.length<=1) return s.length
 
-        if (isNotRepeating(s.drop(1))
-            || isNotRepeating(s.dropLast(1))) {
-            return s.length-1
-        }
-
-        return maxOf(lengthOfLongestSubstring(s.drop(1)), lengthOfLongestSubstring(s.dropLast(1)))
-    }
-
-
-    private fun isNotRepeating(s: String): Boolean {
-        if (cache.containsKey(s)) return cache[s]!!
-
-        val existence = mutableMapOf<String, Boolean>()
+        var maxLength = 0
+        var accumulator = ""
 
         for (i in s.indices) {
-            val currentChar = s[i].toString()
 
-            if (existence.containsKey(currentChar)) {
-                cache[s] = false
-                return false
+            val newChar = s[i].toString()
+
+            if (accumulator.contains(newChar)) {
+                accumulator = accumulator.substring(accumulator.indexOf(newChar)+1)
             }
 
-            existence[currentChar] = true
+            accumulator += newChar
+            maxLength = maxOf(maxLength, accumulator.length)
         }
 
-        cache[s] = true
-        return true
+        return maxLength
     }
 
 }
