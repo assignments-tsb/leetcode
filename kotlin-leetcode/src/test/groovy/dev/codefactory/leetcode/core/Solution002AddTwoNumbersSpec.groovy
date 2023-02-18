@@ -2,9 +2,9 @@ package dev.codefactory.leetcode.core
 
 import spock.lang.Specification
 
-class Problem002AddTwoNumbersSpec extends Specification {
+class Solution002AddTwoNumbersSpec extends Specification {
 
-    def solution = new Problem002AddTwoNumbers()
+    def solution = new Solution002AddTwoNumbers()
 
     def 'it should adds single digits'() {
 

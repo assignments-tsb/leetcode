@@ -2,9 +2,9 @@ package dev.codefactory.leetcode.core
 
 import spock.lang.Specification
 
-class Problem003LongestSubstringSpec extends Specification {
+class Solution003LongestSubstringSpec extends Specification {
 
-    def solution = new Problem003LongestSubstring()
+    def solution = new Solution003LongestSubstring()
 
     def 'it should return the maximum length of non-repetitive string'(String input, Integer longest) {
 

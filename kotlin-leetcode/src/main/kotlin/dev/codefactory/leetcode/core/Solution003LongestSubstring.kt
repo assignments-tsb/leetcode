@@ -1,6 +1,6 @@
 package dev.codefactory.leetcode.core
 
-class Problem003LongestSubstring {
+class Solution003LongestSubstring {
     fun lengthOfLongestSubstring(s: String): Int {
         if (s.length<=1) return s.length
 

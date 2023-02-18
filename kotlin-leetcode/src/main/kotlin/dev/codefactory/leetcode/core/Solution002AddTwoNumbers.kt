@@ -11,7 +11,7 @@ package dev.codefactory.leetcode.core
  *     var next: ListNode? = null
  * }
  */
-class Problem002AddTwoNumbers {
+class Solution002AddTwoNumbers {
 
     fun addTwoNumbers(l1: ListNode?, l2: ListNode?): ListNode? {
         if (l1==null && l2!=null) return l2
