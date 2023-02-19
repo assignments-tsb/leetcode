@@ -1,6 +1,8 @@
 package dev.codefactory.leetcode.core
 
+import dev.codefactory.leetcode.core.shared.ListNode
 import spock.lang.Specification
+import static dev.codefactory.leetcode.core.shared.ListNodeUtil.*
 
 class Solution002AddTwoNumbersSpec extends Specification {
 
@@ -131,11 +133,4 @@ class Solution002AddTwoNumbersSpec extends Specification {
         l1 != l2
     }
 
-    private ListNode createNode(Integer[] numbers) {
-        if (numbers.length == 0) return null
-        if (numbers.length == 1) return new ListNode(numbers[0])
-        def node = new ListNode(numbers[0])
-        node.next = createNode(numbers.drop(1))
-        return node
-    }
 }
