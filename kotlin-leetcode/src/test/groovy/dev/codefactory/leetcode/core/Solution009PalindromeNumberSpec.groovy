@@ -34,15 +34,17 @@ class Solution009PalindromeNumberSpec extends Specification {
         1221    | _
     }
 
-    def 'it should return false for non-palindrome numbers'() {
-
-        given:
-        def n = 112
+    def 'it should return false for non-palindrome numbers'(Integer n) {
 
         when:
         def result = solution.isPalindrome(n)
 
         then:
         !result
+
+        where:
+        n       | _
+        10      | _
+        112     | _
     }
 }
