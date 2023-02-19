@@ -23,4 +23,16 @@ class Solution023MergeKSortedListSpec extends Specification {
         then:
         result == expectedList
     }
+
+    def "it should work on an empty list"() {
+
+        given:
+        def emptyList = createNode()
+
+        when:
+        def result = solution.mergeKLists([emptyList])
+
+        then:
+        result == null
+    }
 }

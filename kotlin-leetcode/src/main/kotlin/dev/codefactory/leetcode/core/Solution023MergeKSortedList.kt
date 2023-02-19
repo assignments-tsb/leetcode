@@ -4,7 +4,8 @@ import dev.codefactory.leetcode.core.shared.ListNode
 
 class Solution023MergeKSortedList {
     private fun mergeKLists(lists: Array<ListNode?>): ListNode? {
-        return ListNode(123)
+        if (lists.isEmpty()) return null
+        return null
     }
 
     fun mergeKLists(listNodes: ArrayList<ListNode>): ListNode? {
