@@ -28,6 +28,7 @@ class Solution009PalindromeNumberSpec extends Specification {
 
         where:
         n       | _
+        0       | _
         1       | _
         11      | _
         12121   | _
