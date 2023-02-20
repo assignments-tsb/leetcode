@@ -1,0 +1,27 @@
+package dev.codefactory.leetcode.core
+
+import spock.lang.Specification
+
+class Solution013RomanToIntegerSpec extends Specification {
+
+    def solution = new Solution013RomanToInteger()
+
+    def 'it should solve single digit numbers'(String roman, Integer expected) {
+
+        when:
+        def result = solution.romanToInt(roman)
+
+        then:
+        result == expected
+
+        where:
+        roman   | expected
+        "I"     | 1
+        "V"     | 5
+        "X"     | 10
+        "L"     | 50
+        "C"     | 100
+        "D"     | 500
+        "M"     | 1000
+    }
+}
