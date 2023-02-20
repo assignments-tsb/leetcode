@@ -24,4 +24,20 @@ class Solution013RomanToIntegerSpec extends Specification {
         "D"     | 500
         "M"     | 1000
     }
+
+    def 'it should solve addition of digits'(String roman, Integer expected) {
+
+        when:
+        def result = solution.romanToInt(roman)
+
+        then:
+        result == expected
+
+        where:
+        roman   | expected
+        "III"   | 3
+        "XXX"   | 30
+        "CCC"   | 300
+        "MMM"   | 3000
+    }
 }

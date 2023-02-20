@@ -6,7 +6,9 @@ class Solution013RomanToInteger {
     fun romanToInt(s: String): Int {
         if (s.length==1) return strToInt(s)
 
-        return 0
+        val left = s.first().toString()
+        val right = s.drop(1)
+        return romanToInt(left) + romanToInt(right)
     }
 
     private fun strToInt(s: String): Int = when(s) {
