@@ -67,6 +67,21 @@ class Solution008StringToIntSpec extends Specification {
         "      42"          | 42
         "   42   "          | 42
         "words and 987"     | 0
+        "3.14159"           | 3
+    }
+
+    def 'it should handle overflow'(String aNumberThatWillOverflow, Integer expected) {
+
+        when:
+        def result = solution.myAtoi(aNumberThatWillOverflow)
+
+        then:
+        result == expected
+
+        where:
+        aNumberThatWillOverflow | expected
+        "-91283472332"          | Integer.MIN_VALUE
+        "91283472332"           | Integer.MAX_VALUE
     }
 
 }
