@@ -20,4 +20,19 @@ class Solution007ReverseIntSpec extends Specification {
         -123    | -321
         120     | 21
     }
+
+
+    def 'it should return zero for buffer overflow'(Integer input) {
+
+        when:
+        def result = solution.reverse(input)
+
+        then:
+        result == 0
+
+        where:
+        input           | _
+        1534236469      | _
+        -2147483648     | _
+    }
 }
