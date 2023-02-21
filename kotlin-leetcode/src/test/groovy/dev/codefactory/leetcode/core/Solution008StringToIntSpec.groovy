@@ -69,6 +69,7 @@ class Solution008StringToIntSpec extends Specification {
         "words and 987"     | 0
         "3.14159"           | 3
         "+-123"             | 0
+        "-+12"              | 0
     }
 
     def 'it should handle overflow'(String aNumberThatWillOverflow, Integer expected) {

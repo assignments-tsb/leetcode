@@ -15,7 +15,7 @@ class Solution008StringToInt {
             val digit = c.toInt()-48
             if (digit in 0..9) {
                 value = value*10 + digit
-            } else if (c != '+' && c != ' ') {
+            } else {
                 break
             }
 
