@@ -4,29 +4,27 @@ class Solution008StringToInt {
     fun myAtoi(s: String): Int {
         if (s.isEmpty()) return 0
 
-        var isNegativeNumber: Boolean? = null
+        val cleanString = s.trimStart()
+        var isNegativeNumber: Boolean = cleanString.startsWith("-")
+        val cleanStringWithoutSign = if (cleanString.startsWith("-") || cleanString.startsWith("+")) {
+            cleanString.drop(1)
+        } else cleanString
 
         var value: Long = 0
-        for (c in s) {
+        for (c in cleanStringWithoutSign) {
             val digit = c.toInt()-48
-            if (c == '-' && value <= 0) {
-                if (isNegativeNumber != null) return 0
-                isNegativeNumber = true
-            } else if (c == '+') {
-                if (isNegativeNumber != null) return 0
-                isNegativeNumber = false
-            } else if (digit in 0..9) {
+            if (digit in 0..9) {
                 value = value*10 + digit
             } else if (c != '+' && c != ' ') {
                 break
             }
 
             if (value > Int.MAX_VALUE) {
-                return if(isNegativeNumber==null || !isNegativeNumber) Int.MAX_VALUE else Int.MIN_VALUE
+                return if(!isNegativeNumber) Int.MAX_VALUE else Int.MIN_VALUE
             }
         }
 
-        if (isNegativeNumber!=null && isNegativeNumber) {
+        if (isNegativeNumber) {
             return -1*value.toInt()
         }
 
