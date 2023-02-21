@@ -18,5 +18,6 @@ class Solution014LongestCommonPrefixSpec extends Specification {
         input                       | expected
         ["flower","flow","flight"]  | "fl"
         ["dog","racecar","car"]     | ""
+        ["","b"]                    | ""
     }
 }
