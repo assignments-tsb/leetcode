@@ -8,13 +8,13 @@ class Solution008StringToInt {
 
         var value = 0
         for (c in s) {
+            val digit = c.toInt()-48
             if (c == '-' && value == 0) {
                 isNegativeNumber = true
-            }
-
-            val digit = c.toInt()-48
-            if (digit in 0..9) {
+            } else if (digit in 0..9) {
                 value = value*10 + digit
+            } else if (c != '+' && c != ' ' && value == 0) {
+                return 0
             }
         }
 

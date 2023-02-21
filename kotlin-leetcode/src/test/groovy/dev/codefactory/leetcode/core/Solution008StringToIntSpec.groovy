@@ -66,6 +66,7 @@ class Solution008StringToIntSpec extends Specification {
         "     -42"          | -42
         "      42"          | 42
         "   42   "          | 42
+        "words and 987"     | 0
     }
 
 }
