@@ -4,14 +4,18 @@ class Solution008StringToInt {
     fun myAtoi(s: String): Int {
         if (s.isEmpty()) return 0
 
-        val isNegativeNumber = s.startsWith("-")
-        val absoluteStr = if (s.startsWith("-") || s.startsWith("+")) s.drop(1) else s
+        var isNegativeNumber = false
 
         var value = 0
-        var multiplier = 1
-        for (c in absoluteStr) {
-            value = value*multiplier + c.digitToInt()
-            multiplier *= 10
+        for (c in s) {
+            if (c == '-' && value == 0) {
+                isNegativeNumber = true
+            }
+
+            val digit = c.toInt()-48
+            if (digit in 0..9) {
+                value = value*10 + digit
+            }
         }
 
         if (isNegativeNumber) {
