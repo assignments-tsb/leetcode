@@ -13,8 +13,8 @@ class Solution008StringToInt {
                 isNegativeNumber = true
             } else if (digit in 0..9) {
                 value = value*10 + digit
-            } else if (c != '+' && c != ' ' && value <= 0) {
-                return 0
+            } else if (c != '+' && c != ' ') {
+                break
             }
 
             if (value > Int.MAX_VALUE) {
