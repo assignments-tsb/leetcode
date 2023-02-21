@@ -1,15 +1,15 @@
 package dev.codefactory.leetcode.core
 
-import kotlin.math.max
+import kotlin.math.min
 
 class Solution014LongestCommonPrefix {
     private fun longestCommonPrefix(strs: Array<String>): String {
         if (strs.size == 1) return strs[0]
 
-        val maxLength = strs.fold(0) { a, b  -> max(a, b.length) } - 1
+        val maxLength = strs.fold(200) { a, b  -> min(a, b.length) }
         var commonPrefix = ""
 
-        for (i in 0 until  maxLength) {
+        for (i in 0 until maxLength) {
             for (element in strs) {
                 if (strs[0][i] != element[i]) {
                     return commonPrefix

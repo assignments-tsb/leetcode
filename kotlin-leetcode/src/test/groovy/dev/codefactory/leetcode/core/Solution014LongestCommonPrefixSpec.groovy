@@ -15,10 +15,11 @@ class Solution014LongestCommonPrefixSpec extends Specification {
         result == expected
 
         where:
-        input                       | expected
-        ["flower","flow","flight"]  | "fl"
-        ["dog","racecar","car"]     | ""
-        ["","b"]                    | ""
-        ["a"]                       | "a"
+        input                                   | expected
+        ["flower","flow","flight"]              | "fl"
+        ["dog","racecar","car"]                 | ""
+        ["","b"]                                | ""
+        ["a"]                                   | "a"
+        ["flower","flower","flower","flower"]   | "flower"
     }
 }
