@@ -19,5 +19,6 @@ class Solution014LongestCommonPrefixSpec extends Specification {
         ["flower","flow","flight"]  | "fl"
         ["dog","racecar","car"]     | ""
         ["","b"]                    | ""
+        ["a"]                       | "a"
     }
 }

@@ -4,6 +4,7 @@ import kotlin.math.max
 
 class Solution014LongestCommonPrefix {
     private fun longestCommonPrefix(strs: Array<String>): String {
+        if (strs.size == 1) return strs[0]
 
         val maxLength = strs.fold(0) { a, b  -> max(a, b.length) } - 1
         var commonPrefix = ""
