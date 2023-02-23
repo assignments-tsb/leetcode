@@ -6,6 +6,18 @@ class Solution0006ZigZagConversionSpec extends Specification {
 
     def solution = new Solution0006ZigZagConversion()
 
+    def 'it should return a single character string'() {
+
+        given:
+        def input = "P"
+
+        when:
+        def result = solution.convert(input, 100)
+
+        then:
+        result == input
+    }
+
     def 'it should convert flat string to zigzag'() {
 
         given:
