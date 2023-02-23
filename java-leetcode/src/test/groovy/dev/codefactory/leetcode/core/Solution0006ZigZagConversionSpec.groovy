@@ -22,7 +22,7 @@ class Solution0006ZigZagConversionSpec extends Specification {
 
         given:
         def input = "PAYPALISHIRING"
-        def rows = 4
+        def rows = 3
 
         and:
         def expected = """
