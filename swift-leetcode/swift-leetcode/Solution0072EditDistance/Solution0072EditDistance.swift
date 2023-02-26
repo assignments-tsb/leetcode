@@ -10,12 +10,12 @@ import Foundation
 class Solution0072EditDistance {
     
     func minDistance(_ word1: String, _ word2: String) -> Int {
-        if (word1.count==0 || word2.count==0) {
-            return 0
-        }
-        
         let m = word1.count
         let n = word2.count
+        
+        if (m==0 || n==0) {
+            return abs(m-n)
+        }
         
         var dp = Matrix(rows: m+1, columns: n+1)
         

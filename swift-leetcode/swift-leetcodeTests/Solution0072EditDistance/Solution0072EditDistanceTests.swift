@@ -24,6 +24,13 @@ final class Solution0072EditDistanceTests: XCTestCase {
         
         XCTAssertEqual(result, expected)
     }
+    
+    func testWithEmptyStringForOtherWord() throws {
+        let expected = 1
+        let result = solution.minDistance("a", "")
+        
+        XCTAssertEqual(result, expected)
+    }
 
 
 }
