@@ -10,6 +10,10 @@ import Foundation
 class Solution0072EditDistance {
     
     func minDistance(_ word1: String, _ word2: String) -> Int {
+        if (word1.count==0 || word2.count==0) {
+            return 0
+        }
+        
         let m = word1.count
         let n = word2.count
         
@@ -27,11 +31,13 @@ class Solution0072EditDistance {
             for j in 1...n {
                 if (word1[i-1] == word2[j-1]) {
                     dp[i,j] = dp[i-1,j-1]
+                } else {
+                    dp[i,j] = 1 + min(dp[i,j-1], min(dp[i-1,j], dp[i-1,j-1]))
                 }
             }
         }
         
-        return -1
+        return dp[m,n]
     }
 }
 
