@@ -11,7 +11,7 @@ final class Solution0072EditDistanceTests: XCTestCase {
     
     let solution = Solution0072EditDistance()
 
-    func testExample() throws {
+    func testBasic() throws {
         let expected = 1
         let result = solution.minDistance("word", "work")
         
