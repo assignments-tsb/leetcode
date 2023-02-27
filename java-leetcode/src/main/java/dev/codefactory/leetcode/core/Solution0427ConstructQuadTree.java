@@ -4,7 +4,56 @@ import java.util.Objects;
 
 public class Solution0427ConstructQuadTree {
     public Node construct(int[][] grid) {
-        return new Node(true, true);
+        if (grid.length==0) return null;
+        if (grid.length==1) return new Node(grid[0][0]==1, true);
+
+        var firstValue = grid[0][0];
+        var sameValue = true;
+
+        for (int[] ints : grid) {
+            for (int anInt : ints) {
+                if (anInt != firstValue) {
+                    sameValue = false;
+                    break;
+                }
+            }
+        }
+
+        var node = new Node(true, true);
+
+        if (sameValue) {
+            return node;
+        }
+
+        node.topLeft = construct(take(grid, true, true));
+        node.topRight = construct(take(grid, true, false));
+        node.bottomLeft = construct(take(grid, false, true));
+        node.bottomRight = construct(take(grid, false, false));
+        if (node.topLeft!=null
+                || node.topRight!=null
+                || node.bottomLeft!=null
+                || node.bottomRight!=null) {
+            node.isLeaf = false;
+        }
+
+        return node;
+    }
+
+    int[][] take(int[][] grid, boolean top, boolean left) {
+        int mid = grid.length/2;
+
+        int[][] subArray = new int[mid][mid];
+
+        int iStart = top ? 0 : mid;
+        int jStart = left ? 0 : mid;
+
+        for (int i=0, i2=iStart; i<mid ;i++,i2++) {
+            for (int j=0, j2=jStart; j<mid; j++,j2++) {
+                subArray[i][j] = grid[i2][j2];
+            }
+        }
+
+        return subArray;
     }
 }
 
