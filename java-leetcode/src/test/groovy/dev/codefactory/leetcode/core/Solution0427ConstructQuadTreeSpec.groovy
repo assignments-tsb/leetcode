@@ -6,7 +6,7 @@ class Solution0427ConstructQuadTreeSpec extends Specification {
 
     def solution = new Solution0427ConstructQuadTree()
 
-    def 'it should construct a new grid'() {
+    def 'it should construct a new quad-tree from a simple 2x2 grid'() {
 
         given:
         int[][] grid = [
@@ -15,14 +15,11 @@ class Solution0427ConstructQuadTreeSpec extends Specification {
         ]
 
         and:
-        int[][] expected = [
-                [0,1],
-                    [1,0],
-                    [1,1],
-                    [1,1],
-                    [1,0],
-        ]
-        Node expectedAsNode = createNodes(expected)
+        Node expectedAsNode = new Node(false, false)
+        expectedAsNode.topLeft = new Node(false, true)
+        expectedAsNode.topRight = new Node(true, true)
+        expectedAsNode.bottomLeft = new Node(true, true)
+        expectedAsNode.bottomRight = new Node(false, true)
 
         when:
         def result = solution.construct(grid)
@@ -31,14 +28,4 @@ class Solution0427ConstructQuadTreeSpec extends Specification {
         result == expectedAsNode
     }
 
-    private Node createNodes(int[][] nodeList) {
-        if (nodeList.length==0) return null
-
-        def firstNode = new Node()
-        for (int i=1; i<nodeList.length; i++) {
-
-        }
-
-        return firstNode
-    }
 }
