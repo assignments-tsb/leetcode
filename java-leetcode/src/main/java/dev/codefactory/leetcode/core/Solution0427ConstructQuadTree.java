@@ -19,7 +19,7 @@ public class Solution0427ConstructQuadTree {
             }
         }
 
-        var node = new Node(true, true);
+        var node = new Node(firstValue==1, true);
 
         if (sameValue) {
             return node;
