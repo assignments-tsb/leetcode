@@ -6,11 +6,11 @@ public class Solution0098ValidBinarySearchTree {
             return true;
         }
 
-        if (root.left!=null && root.left.val>root.val) {
+        if (root.left!=null && root.left.val>=root.val) {
             return false;
         }
 
-        if (root.right!=null && root.right.val<root.val) {
+        if (root.right!=null && root.right.val<=root.val) {
             return false;
         }
 

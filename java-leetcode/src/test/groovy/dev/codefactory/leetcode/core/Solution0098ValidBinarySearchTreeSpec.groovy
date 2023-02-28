@@ -27,4 +27,15 @@ class Solution0098ValidBinarySearchTreeSpec extends Specification {
         expect:
         !solution.isValidBST(sortedTree)
     }
+
+    def 'it should return false if the tree is of the same value'() {
+
+        given:
+        def sortedTree = new TreeNode(2)
+        sortedTree.left = new TreeNode(2)
+        sortedTree.right = new TreeNode(2)
+
+        expect:
+        !solution.isValidBST(sortedTree)
+    }
 }
