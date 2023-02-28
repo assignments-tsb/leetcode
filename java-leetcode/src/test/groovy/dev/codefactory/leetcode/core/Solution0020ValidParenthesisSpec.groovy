@@ -32,4 +32,13 @@ class Solution0020ValidParenthesisSpec extends Specification {
         expect:
         !solution.isValid(s)
     }
+
+    def 'it should return false for single brackets'() {
+
+        given:
+        def s = "]"
+
+        expect:
+        !solution.isValid(s)
+    }
 }
