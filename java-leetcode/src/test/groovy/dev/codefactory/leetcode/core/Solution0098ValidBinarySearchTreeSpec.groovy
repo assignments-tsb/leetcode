@@ -38,4 +38,30 @@ class Solution0098ValidBinarySearchTreeSpec extends Specification {
         expect:
         !solution.isValidBST(sortedTree)
     }
+
+    def 'it should return false if the right node is less than the current node'() {
+
+        given: 'right node is less than'
+        def sortedTree = new TreeNode(5)
+        sortedTree.left = new TreeNode(1)
+        sortedTree.right = new TreeNode(4)
+        sortedTree.right.left = new TreeNode(3)
+        sortedTree.right.right = new TreeNode(6)
+
+        expect:
+        !solution.isValidBST(sortedTree)
+    }
+
+    def 'it should return false if the right node is less than the current node'() {
+
+        given: 'right node is less than'
+        def sortedTree = new TreeNode(5)
+        sortedTree.left = new TreeNode(4)
+        sortedTree.right = new TreeNode(6)
+        sortedTree.right.left = new TreeNode(3)
+        sortedTree.right.right = new TreeNode(7)
+
+        expect:
+        !solution.isValidBST(sortedTree)
+    }
 }
