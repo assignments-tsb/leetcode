@@ -64,4 +64,22 @@ class Solution0098ValidBinarySearchTreeSpec extends Specification {
         expect:
         !solution.isValidBST(sortedTree)
     }
+
+    def 'it should return true for single value when node is max'() {
+
+        given:
+        def sortedTree = new TreeNode(Integer.MAX_VALUE)
+
+        expect:
+        solution.isValidBST(sortedTree)
+    }
+
+    def 'it should return true for single value when node is min'() {
+
+        given:
+        def sortedTree = new TreeNode(Integer.MAX_VALUE)
+
+        expect:
+        solution.isValidBST(sortedTree)
+    }
 }
