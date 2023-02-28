@@ -2,18 +2,13 @@ package dev.codefactory.leetcode.core;
 
 public class Solution0098ValidBinarySearchTree {
     public boolean isValidBST(TreeNode root) {
-        if (root==null || root.left==null && root.right==null) {
-            return true;
-        }
+        return isValid(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+    }
 
-        if (root.left!=null && root.left.val>=root.val) {
-            return false;
-        }
+    private boolean isValid(TreeNode node, Integer lowerBound, Integer upperBound) {
+        if (node==null) return true;
+        if (node.val <= lowerBound || node.val >= upperBound) return false;
 
-        if (root.right!=null && root.right.val<=root.val) {
-            return false;
-        }
-
-        return isValidBST(root.left) && isValidBST(root.right);
+        return isValid(node.left, lowerBound, node.val) && isValid(node.right, node.val, upperBound);
     }
 }
