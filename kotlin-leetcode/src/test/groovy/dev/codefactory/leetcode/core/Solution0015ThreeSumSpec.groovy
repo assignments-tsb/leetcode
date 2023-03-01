@@ -2,9 +2,9 @@ package dev.codefactory.leetcode.core
 
 import spock.lang.Specification
 
-class Solution015ThreeSumSpec extends Specification {
+class Solution0015ThreeSumSpec extends Specification {
 
-    def solution = new Solution015ThreeSum()
+    def solution = new Solution0015ThreeSum()
 
     def 'it should find all possible answers when possible'() {
 
