@@ -20,8 +20,11 @@ public class Solution0016ThreeSumClosest {
                     closest = sum;
                 }
 
-                left++;
-                right--;
+                if (sum < target) {
+                    left++;
+                } else {
+                    right--;
+                }
             }
 
         }
