@@ -16,7 +16,7 @@ public class Solution0016ThreeSumClosest {
             while (left < right) {
                 int sum = nums[i] + nums[left] + nums[right];
 
-                if (sum-target < closest-target) {
+                if (Math.abs(sum-target) < Math.abs(closest-target)) {
                     closest = sum;
                 }
 
