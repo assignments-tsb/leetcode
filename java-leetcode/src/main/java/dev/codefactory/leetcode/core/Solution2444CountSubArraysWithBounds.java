@@ -2,8 +2,11 @@ package dev.codefactory.leetcode.core;
 
 public class Solution2444CountSubArraysWithBounds {
     public long countSubarrays(int[] nums, int minK, int maxK) {
-        if (minK==maxK) return countSubarrays(nums, minK);
+        if (minK==maxK) return countIfMinEqualsMax(nums, minK);
+        return countWithNormal(nums, minK, maxK);
+    }
 
+    private long countWithNormal(int[] nums, int minK, int maxK) {
         int count = 0;
 
         for (int i=0; i<nums.length; i++) {
@@ -21,11 +24,10 @@ public class Solution2444CountSubArraysWithBounds {
                 if (max > maxK || min < minK) break;
             }
         }
-
         return count;
     }
 
-    private long countSubarrays(int[] num, int k) {
+    private long countIfMinEqualsMax(int[] num, int k) {
         long count = 0;
 
         int left = 0;
