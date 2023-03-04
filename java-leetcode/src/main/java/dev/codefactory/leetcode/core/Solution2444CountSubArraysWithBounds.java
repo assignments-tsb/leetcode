@@ -25,8 +25,23 @@ public class Solution2444CountSubArraysWithBounds {
         return count;
     }
 
-    private long countSubarrays(int num[], int minMax) {
-        return factorial(num.length+1);
+    private long countSubarrays(int[] num, int k) {
+        long count = 0;
+
+        int left = 0;
+        int i = 0;
+        while (i<num.length) {
+            if (num[i]!=k) {
+                count += factorial(i-left+1);
+                left = i+1;
+            }
+            if (i==num.length-1) {
+                count += factorial(i-left+2);
+            }
+            i++;
+        }
+
+        return count;
     }
 
     private long factorial(long n) {
