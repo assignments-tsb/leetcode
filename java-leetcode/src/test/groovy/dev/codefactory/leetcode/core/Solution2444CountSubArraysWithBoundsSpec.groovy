@@ -6,16 +6,16 @@ class Solution2444CountSubArraysWithBoundsSpec extends Specification {
 
     def solution = new Solution2444CountSubArraysWithBounds()
 
-    def 'it should count the number of sub-arrays matching the bound'(int[] array, int minK, int maxK, long expected) {
+    def 'it should count the number of sub-arrays matching the bound'(int[] nums, int minK, int maxK, long expectedResult) {
 
         when:
-        long result = solution.countSubarrays(array, minK, maxK)
+        long result = solution.countSubarrays(nums, minK, maxK)
 
         then:
-        result == expected
+        result == expectedResult
 
         where:
-        array           | minK      | maxK      | expected
+        nums            | minK      | maxK      | expectedResult
         [1,1,1,1,1]     | 1         | 1         | 15
         [1,0,1,0,1]     | 1         | 1         | 3
         [1,1,1,0,1]     | 1         | 1         | 7
