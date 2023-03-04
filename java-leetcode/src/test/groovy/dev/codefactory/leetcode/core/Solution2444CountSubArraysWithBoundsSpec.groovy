@@ -6,10 +6,10 @@ class Solution2444CountSubArraysWithBoundsSpec extends Specification {
 
     def solution = new Solution2444CountSubArraysWithBounds()
 
-    def 'it should count the number of sub-arrays matching the bound'(int[] array, int minK, int maxK, int expected) {
+    def 'it should count the number of sub-arrays matching the bound'(int[] array, int minK, int maxK, long expected) {
 
         when:
-        def result = solution.countSubarrays(array, minK, maxK)
+        long result = solution.countSubarrays(array, minK, maxK)
 
         then:
         result == expected
@@ -21,11 +21,13 @@ class Solution2444CountSubArraysWithBoundsSpec extends Specification {
         [1,1,1,1]       | 1         | 1         | 10
         [1,1,1,]        | 1         | 1         | 6
         [1,1]           | 1         | 1         | 3
+        [1,1,0,0]       | 1         | 1         | 3
         [1]             | 1         | 1         | 1
+        [1,0,0,0]       | 1         | 1         | 1
         []              | 1         | 1         | 0
         LARGE           | 35_054    | 945_315   | 81
         LARGE2          | 35        | 945       | 81
-        allOnesLarge()  | 1         | 1         | 705082704
+        allOnesLarge()  | 1         | 1         | 5000050000
     }
 
     def static LARGE2 = [35,398,945,945,820,945,35,945,171,945,35,109,790,441,552]

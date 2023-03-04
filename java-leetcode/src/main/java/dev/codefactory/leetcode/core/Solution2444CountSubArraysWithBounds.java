@@ -30,7 +30,7 @@ public class Solution2444CountSubArraysWithBounds {
     }
 
     private long factorial(long n) {
-        int sum = 0;
+        long sum = 0;
         for (int i=1; i<n; i++) sum+=i;
         return sum;
     }
