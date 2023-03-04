@@ -4,7 +4,6 @@ import spock.lang.Specification
 
 class Solution2444CountSubArraysWithBoundsSpec extends Specification {
 
-    def static LARGE = [35054,398719,945315,945315,820417,945315,35054,945315,171832,945315,35054,109750,790964,441974,552913]
     def solution = new Solution2444CountSubArraysWithBounds()
 
     def 'it should count the number of sub-arrays matching the bound'(int[] array, int minK, int maxK, int expected) {
@@ -16,10 +15,14 @@ class Solution2444CountSubArraysWithBoundsSpec extends Specification {
         result == expected
 
         where:
-        array           | minK  | maxK   | expected
-        [1,3,5,2,7,5]   | 1     | 5      | 2
-        [1,1,1,1]       | 1     | 1      | 10
-        LARGE           | 35054 | 945315 | 81
+        array           | minK      | maxK      | expected
+        [1,3,5,2,7,5]   | 1         | 5         | 2
+        [1,1,1,1]       | 1         | 1         | 10
+        LARGE           | 35_054    | 945_315   | 81
+        LARGE2          | 35        | 945       | 81
     }
+
+    def static LARGE2 = [35,398,945,945,820,945,35,945,171,945,35,109,790,441,552]
+    def static LARGE = [35_054,398_719,945_315,945_315,820_417,945_315,35_054,945_315,171_832,945_315,35_054,109_750,790_964,441_974,552_913]
 
 }
