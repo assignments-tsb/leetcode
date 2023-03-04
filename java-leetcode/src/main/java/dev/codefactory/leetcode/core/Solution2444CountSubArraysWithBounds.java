@@ -2,6 +2,8 @@ package dev.codefactory.leetcode.core;
 
 public class Solution2444CountSubArraysWithBounds {
     public long countSubarrays(int[] nums, int minK, int maxK) {
+        if (minK==maxK) return countSubarrays(nums, minK);
+
         int count = 0;
 
         for (int i=0; i<nums.length; i++) {
@@ -21,6 +23,16 @@ public class Solution2444CountSubArraysWithBounds {
         }
 
         return count;
+    }
+
+    private long countSubarrays(int num[], int minMax) {
+        return factorial(num.length+1);
+    }
+
+    private long factorial(long n) {
+        int sum = 0;
+        for (int i=1; i<n; i++) sum+=i;
+        return sum;
     }
 
 }

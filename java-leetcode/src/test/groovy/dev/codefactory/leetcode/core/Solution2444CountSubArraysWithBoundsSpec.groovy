@@ -17,7 +17,12 @@ class Solution2444CountSubArraysWithBoundsSpec extends Specification {
         where:
         array           | minK      | maxK      | expected
         [1,3,5,2,7,5]   | 1         | 5         | 2
+        [1,1,1,1,1]     | 1         | 1         | 15
         [1,1,1,1]       | 1         | 1         | 10
+        [1,1,1,]        | 1         | 1         | 6
+        [1,1]           | 1         | 1         | 3
+        [1]             | 1         | 1         | 1
+        []              | 1         | 1         | 0
         LARGE           | 35_054    | 945_315   | 81
         LARGE2          | 35        | 945       | 81
         allOnesLarge()  | 1         | 1         | 705082704
