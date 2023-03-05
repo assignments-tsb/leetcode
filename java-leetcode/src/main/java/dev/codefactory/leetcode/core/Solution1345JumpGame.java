@@ -12,6 +12,14 @@ public class Solution1345JumpGame {
         Queue<Integer> q = new LinkedList<>();
         q.add(0);
 
+        Map<Integer, List<Integer>> mapForIndex = new HashMap<>();
+        for (int i=0; i<arr.length; i++) {
+            if (!mapForIndex.containsKey(arr[i])) {
+                mapForIndex.put(arr[i], new LinkedList<>());
+            }
+            mapForIndex.get(arr[i]).add(i);
+        }
+
         while (!q.isEmpty()) {
             var currentIndex = q.remove();
             var currentStep = minSteps.get(currentIndex);
@@ -29,7 +37,7 @@ public class Solution1345JumpGame {
             }
 
             //special jump to equals
-            for (int i=0; i<arr.length; i++) {
+            for (int i : mapForIndex.get(arr[currentIndex])) {
                 if (arr[currentIndex]==arr[i] && i!=currentIndex && !minSteps.containsKey(i)) {
                     minSteps.put(i, currentStep+1);
                     q.add(i);
