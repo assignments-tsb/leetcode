@@ -16,12 +16,15 @@ class Solution1345JumpGameSpec extends Specification {
 
         where:
         arr                                     | expected
+        [11,7,7,7,7,7,7]                        | 2
+        [7,7,2,1,7,7,7,3,4,1]                   | 3
+        [7,7,7,7,2]                             | 2
         [100,-23,-23,404,100,23,23,23,3,404]    | 3
         [7]                                     | 0
         [7,6,9,6,9,6,9,7]                       | 1
         [1,0,0,0,0,2,1,2]                       | 2
         [1,0,0,0,0,2,3,2]                       | 4
-        largeNumberOneStep()                    | 1
+        largeNumberOneStep()                    | 2
     }
 
     private int[] largeNumberOneStep() {

@@ -17,7 +17,7 @@ public class Solution1345JumpGame {
             if (!mapForIndex.containsKey(arr[i])) {
                 mapForIndex.put(arr[i], new LinkedList<>());
             }
-            mapForIndex.get(arr[i]).addFirst(i);
+            mapForIndex.get(arr[i]).add(i);
         }
 
         while (!q.isEmpty()) {
@@ -36,11 +36,22 @@ public class Solution1345JumpGame {
                 q.add(currentIndex-1);
             }
 
+            if (minSteps.containsKey(arr.length-1)) {
+                return minSteps.get(arr.length-1);
+            }
+
             //special jump to equals
             for (int i : mapForIndex.get(arr[currentIndex])) {
                 if (arr[currentIndex]==arr[i] && i!=currentIndex && !minSteps.containsKey(i)) {
                     minSteps.put(i, currentStep+1);
                     q.add(i);
+                }
+
+                if (minSteps.containsKey(arr.length-1)) {
+                    return minSteps.get(arr.length-1);
+                }
+                if (minSteps.containsKey(arr.length-2)) {
+                    return minSteps.get(arr.length-2)+1;
                 }
             }
         }
