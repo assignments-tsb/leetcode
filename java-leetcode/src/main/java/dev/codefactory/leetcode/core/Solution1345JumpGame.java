@@ -12,12 +12,12 @@ public class Solution1345JumpGame {
         Queue<Integer> q = new LinkedList<>();
         q.add(0);
 
-        Map<Integer, List<Integer>> mapForIndex = new HashMap<>();
+        Map<Integer, LinkedList<Integer>> mapForIndex = new HashMap<>();
         for (int i=0; i<arr.length; i++) {
             if (!mapForIndex.containsKey(arr[i])) {
                 mapForIndex.put(arr[i], new LinkedList<>());
             }
-            mapForIndex.get(arr[i]).add(i);
+            mapForIndex.get(arr[i]).addFirst(i);
         }
 
         while (!q.isEmpty()) {

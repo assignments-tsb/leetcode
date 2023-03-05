@@ -15,11 +15,22 @@ class Solution1345JumpGameSpec extends Specification {
         result == expected
 
         where:
-        arr | expected
+        arr                                     | expected
         [100,-23,-23,404,100,23,23,23,3,404]    | 3
         [7]                                     | 0
         [7,6,9,6,9,6,9,7]                       | 1
         [1,0,0,0,0,2,1,2]                       | 2
         [1,0,0,0,0,2,3,2]                       | 4
+        largeNumberOneStep()                    | 1
+    }
+
+    private int[] largeNumberOneStep() {
+        int[] largeArr = new int[5*10*10*10*10*10]
+        for (int i=0; i<largeArr.length-1; i++) {
+            largeArr[i] = 7
+        }
+        largeArr[largeArr.length-1] = 11
+
+        largeArr
     }
 }
