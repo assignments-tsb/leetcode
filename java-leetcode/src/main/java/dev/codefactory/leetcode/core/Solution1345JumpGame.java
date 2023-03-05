@@ -4,7 +4,9 @@ import java.util.*;
 
 public class Solution1345JumpGame {
     public int minJumps(int[] arr) {
-        if (arr.length==1) return 0;
+        int n = arr.length;
+
+        if (n==1) return 0;
 
         Map<Integer, Integer> minSteps = new HashMap<>();
         minSteps.put(0,0);
@@ -13,49 +15,33 @@ public class Solution1345JumpGame {
         q.add(0);
 
         Map<Integer, LinkedList<Integer>> mapForIndex = new HashMap<>();
-        for (int i=0; i<arr.length; i++) {
+        for (int i=0; i<n; i++) {
             if (!mapForIndex.containsKey(arr[i])) {
                 mapForIndex.put(arr[i], new LinkedList<>());
             }
             mapForIndex.get(arr[i]).add(i);
         }
 
+        boolean[] visited = new boolean[n]; visited[0] = true;
+        int step = 0;
+
         while (!q.isEmpty()) {
-            var currentIndex = q.remove();
-            var currentStep = minSteps.get(currentIndex);
-
-            //explore forward
-            if (currentIndex+1<arr.length && !minSteps.containsKey(currentIndex+1)) {
-                minSteps.put(currentIndex+1, currentStep+1);
-                q.add(currentIndex+1);
-            }
-
-            //explore backward
-            if (currentIndex-1>=0 && !minSteps.containsKey(currentIndex-1)) {
-                minSteps.put(currentIndex-1, currentStep+1);
-                q.add(currentIndex-1);
-            }
-
-            if (minSteps.containsKey(arr.length-1)) {
-                return minSteps.get(arr.length-1);
-            }
-
-            //special jump to equals
-            for (int i : mapForIndex.get(arr[currentIndex])) {
-                if (arr[currentIndex]==arr[i] && i!=currentIndex && !minSteps.containsKey(i)) {
-                    minSteps.put(i, currentStep+1);
-                    q.add(i);
+            for (int size = q.size(); size > 0; --size) {
+                int i = q.poll();
+                if (i == n - 1) return step;
+                List<Integer> next = mapForIndex.get(arr[i]);
+                next.add(i - 1); next.add(i + 1);
+                for (int j : next) {
+                    if (j >= 0 && j < n && !visited[j]) {
+                        visited[j] = true;
+                        q.offer(j);
+                    }
                 }
-
-                if (minSteps.containsKey(arr.length-1)) {
-                    return minSteps.get(arr.length-1);
-                }
-                if (minSteps.containsKey(arr.length-2)) {
-                    return minSteps.get(arr.length-2)+1;
-                }
+                next.clear();
             }
+            step++;
         }
 
-        return minSteps.get(arr.length-1);
+        return 0;
     }
 }
