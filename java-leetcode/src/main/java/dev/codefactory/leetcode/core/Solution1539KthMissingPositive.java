@@ -2,12 +2,12 @@ package dev.codefactory.leetcode.core;
 
 public class Solution1539KthMissingPositive {
     public int findKthPositive(int[] arr, int k) {
-        if (arr.length==1) return arr[0] + k;
-
         int n = arr.length;
         int left = 0;
         int right = n - 1;
         int missingBefore = arr[0] - 1;
+
+        if (missingBefore >= k) return k;
 
         while (left <= right) {
             int mid = left + (right - left) / 2;

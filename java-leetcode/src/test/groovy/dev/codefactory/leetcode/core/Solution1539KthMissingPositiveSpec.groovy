@@ -25,5 +25,8 @@ class Solution1539KthMissingPositiveSpec extends Specification {
         [100]           | 1     | 1
         [100]           | 50    | 50
         [100]           | 150   | 151
+        [100,101]       | 1     | 1
+        [100,101]       | 50    | 50
+        [100,101]       | 150   | 152
     }
 }
