@@ -5,8 +5,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class ListNode {
-     int val;
-     ListNode next;
+     public int val;
+     public ListNode next;
 
      public ListNode() {}
      public ListNode(int val) {
@@ -43,4 +43,9 @@ public class ListNode {
 
          return temp.stream().mapToInt(Integer::intValue).toArray();
      }
+
+    @Override
+    public String toString() {
+        return "" + val;
+    }
 }
