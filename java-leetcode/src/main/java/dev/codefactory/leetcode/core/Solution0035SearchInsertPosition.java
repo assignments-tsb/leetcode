@@ -9,6 +9,8 @@ public class Solution0035SearchInsertPosition {
 
         while (left <= right) {
             if (nums[mid]==target) return mid;
+            if (nums[left]==target) return left;
+            if (nums[right]==target) return right;
 
             mid = (left + right) / 2;
 
