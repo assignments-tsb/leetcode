@@ -2,12 +2,24 @@ package dev.codefactory.leetcode.core;
 
 public class Solution2187MinTimeTrips {
     public long minimumTime(int[] time, int totalTrips) {
-        for (int t=0; true; t++) {
-            int totalTripsAtT = 0;
-            for (int i : time) {
-                totalTripsAtT += t / i;
+        long left = 0;
+        long right = Integer.MAX_VALUE;
+
+        while (left < right) {
+            long mid = (left + right) / 2;
+            long trips = 0;
+
+            for (int j : time) {
+                trips += mid / j;
             }
-            if (totalTripsAtT>=totalTrips) return t;
+
+            if (trips >= totalTrips) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
         }
+
+        return left;
     }
 }
