@@ -3,7 +3,13 @@ package dev.codefactory.leetcode.core;
 public class Solution2187MinTimeTrips {
     public long minimumTime(int[] time, int totalTrips) {
         long left = 0;
-        long right = Integer.MAX_VALUE;
+        long right = 0;
+
+        //initialize for worst and best case
+        for (int k : time) {
+            long minTrip = (long) totalTrips * k;
+            right = Math.max(right, minTrip);
+        }
 
         while (left < right) {
             long mid = (left + right) / 2;
