@@ -28,6 +28,8 @@ public class Solution208Trie {
 }
 
 class Trie {
+
+    private final Character DELIMITER = '.';
     private final Map<Character, Trie> leaf = new HashMap<>();
     public Trie() {}
 
@@ -40,8 +42,11 @@ class Trie {
             } else {
                 Trie t = new Trie();
                 currentTrie.leaf.put(c, t);
+                currentTrie = t;
             }
         }
+        Trie t = new Trie();
+        currentTrie.leaf.put(DELIMITER, t);
     }
 
     public boolean search(String word) {
@@ -54,7 +59,7 @@ class Trie {
                 return false;
             }
         }
-        return currentTrie.leaf.isEmpty();
+        return currentTrie.leaf.containsKey(DELIMITER);
     }
 
     public boolean startsWith(String prefix) {
@@ -68,5 +73,10 @@ class Trie {
             }
         }
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return leaf.keySet().toString();
     }
 }
