@@ -53,18 +53,15 @@ public class Solution1472BrowserHistory {
 
 class BrowserHistory {
 
-    private Stack<String> backHistory = new Stack<>();
-    private Stack<String> forwardHistory = new Stack<>();
-    private String currentUrl;
+    private final Stack<String> backHistory = new Stack<>();
+    private final Stack<String> forwardHistory = new Stack<>();
 
     public BrowserHistory(String homepage) {
-        currentUrl = homepage;
         backHistory.push(homepage);
     }
 
     public void visit(String url) {
-        backHistory.push(currentUrl);
-        currentUrl = url;
+        backHistory.push(url);
         forwardHistory.clear();
     }
 
@@ -73,8 +70,7 @@ class BrowserHistory {
             forwardHistory.push(backHistory.pop());
             steps--;
         }
-        currentUrl = backHistory.peek();
-        return currentUrl;
+        return backHistory.peek();
     }
 
     public String forward(int steps) {
@@ -82,7 +78,6 @@ class BrowserHistory {
             backHistory.push(forwardHistory.pop());
             steps--;
         }
-        currentUrl = backHistory.peek();
-        return currentUrl;
+        return backHistory.peek();
     }
 }
